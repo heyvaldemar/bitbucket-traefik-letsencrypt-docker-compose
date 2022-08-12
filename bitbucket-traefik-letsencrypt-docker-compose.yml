@@ -30,7 +30,7 @@
 # Run bitbucket-restore-database.sh to restore database if needed.
 
 # Deploy Bitbucket server with a Docker Compose using the command:
-# docker-compose -f bitbucket-traefik-letsencrypt-docker-compose.yml -p bitbucket up -d
+# docker compose -f bitbucket-traefik-letsencrypt-docker-compose.yml -p bitbucket up -d
 
 # Detailed installation guide can be found on my website: https://www.heyvaldemar.com/install-bitbucket-with-docker-compose/
 
