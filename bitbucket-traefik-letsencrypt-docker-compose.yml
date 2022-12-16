@@ -63,7 +63,7 @@ services:
 
   bitbucket:
     # Image tag (replace with yours)
-    image: atlassian/bitbucket-server:8.3
+    image: atlassian/bitbucket-server:8.6
     volumes:
       - bitbucket-data:/var/atlassian/application-data/bitbucket
     environment:
