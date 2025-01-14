@@ -111,6 +111,7 @@ services:
       - "--entrypoints.web.address=:80"
       # Define the secure (HTTPS) entry point on port 443
       - "--entrypoints.websecure.address=:443"
+      # Define the SSH entry point on port 7999
       - "--entryPoints.ssh.address=:7999"
       # Enable the Docker provider to detect containers and their labels
       - "--providers.docker=true"
