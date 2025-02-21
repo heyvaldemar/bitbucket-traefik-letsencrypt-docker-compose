@@ -83,7 +83,7 @@ services:
       # Assign the Bitbucket SS router to a named Traefik service
       - "traefik.tcp.routers.bitbucket-ssh.service=bitbucket-ssh"
       # Use the 'Bitbucket' (custom) entry point
-      - "traefik.tcp.routers.bitbucket-ssh.entrypoints=-ssh"
+      - "traefik.tcp.routers.bitbucket-ssh.entrypoints=ssh"
       # Define the internal container port for routing to the Bitbucket service
       - "traefik.tcp.services.bitbucket-ssh.loadbalancer.server.port=7999"
       # Specify which Docker network Traefik should use for routing
