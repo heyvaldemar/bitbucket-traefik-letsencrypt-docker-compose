@@ -23,8 +23,9 @@ v1.2.0.
   deployments step 8.13 → 9.6 (LTS) → 10.4 via `BITBUCKET_IMAGE_TAG`
   overrides — see the release notes.
 - **Traefik 3.2 → 3.7** (3.2's Docker client cannot talk to Docker
-  Engine 29); PostgreSQL 15 digest-pinned. All pins in the compose
-  `x-images` block.
+  Engine 29); PostgreSQL 16 → 17 (Bitbucket 10.x
+  supports PostgreSQL 16-18; 15 is rejected as unsupported). All pins
+  in the compose `x-images` block.
 
 ### Fixed
 

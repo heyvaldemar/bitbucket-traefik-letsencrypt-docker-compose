@@ -3,7 +3,7 @@
 [![Deployment Verification](https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/actions/workflows/deployment-verification.yml/badge.svg?branch=main)](https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/actions/workflows/deployment-verification.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-This repository deploys **Bitbucket Data Center** (single node) behind **Traefik** with automatic **Let's Encrypt TLS**, backed by **PostgreSQL 15**, with scheduled **backups** (database + home directory) and companion **restore scripts**.
+This repository deploys **Bitbucket Data Center** (single node) behind **Traefik** with automatic **Let's Encrypt TLS**, backed by **PostgreSQL 17**, with scheduled **backups** (database + home directory) and companion **restore scripts**.
 
 📙 Full narrative installation guide on the blog: [heyvaldemar.com/install-bitbucket-using-docker-compose/](https://www.heyvaldemar.com/install-bitbucket-using-docker-compose/).
 
