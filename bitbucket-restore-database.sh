@@ -16,7 +16,6 @@ BITBUCKET_CONTAINER=$(docker ps -aqf "name=bitbucket-bitbucket")
 BITBUCKET_BACKUPS_CONTAINER=$(docker ps -aqf "name=bitbucket-backups")
 BITBUCKET_DB_NAME="bitbucketdb"
 BITBUCKET_DB_USER="bitbucketdbuser"
-POSTGRES_PASSWORD=$(docker exec $BITBUCKET_BACKUPS_CONTAINER printenv PGPASSWORD)
 BACKUP_PATH="/srv/bitbucket-postgres/backups/"
 
 echo "--> All available database backups:"
@@ -30,7 +29,7 @@ echo "--> Copy and paste the backup name from the list above to restore database
 --> Example: bitbucket-postgres-backup-YYYY-MM-DD_hh-mm.gz"
 echo -n "--> "
 
-read SELECTED_DATABASE_BACKUP
+read -r SELECTED_DATABASE_BACKUP
 
 echo "--> $SELECTED_DATABASE_BACKUP was selected"
 
