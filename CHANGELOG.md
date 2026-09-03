@@ -65,7 +65,7 @@ _(no unreleased changes yet)_
 
 ### Added
 
-- **`tests/e2e-backup-restore.sh`** — seven end-to-end scenarios against
+- **`tests/e2e-backup-restore.sh`**: seven end-to-end scenarios against
   the live stack, run by CI on every push and by you locally: the
   required-variable guard fires, a backup is produced, it is a readable
   archive with real dump content (and a readable data `tar.gz` where the
@@ -105,7 +105,7 @@ v1.2.0.
   `atlassian/bitbucket-server` image name to `atlassian/bitbucket`.
   ❗ Atlassian supports one platform upgrade at a time: existing 8.13
   deployments step 8.13 → 9.6 (LTS) → 10.4 via `BITBUCKET_IMAGE_TAG`
-  overrides — see the release notes.
+  overrides. See the release notes.
 - **Traefik 3.2 → 3.7** (3.2's Docker client cannot talk to Docker
   Engine 29); PostgreSQL 15 → 17 (Bitbucket 10.x
   supports PostgreSQL 16-18; 15 is rejected as unsupported). All pins
@@ -125,7 +125,7 @@ v1.2.0.
 ### Security
 
 - **Credentials untracked from git.** The tracked `.env` carried a
-  generated-looking database password — rotate it if reused.
+  generated-looking database password. Rotate it if reused.
 
 ### Added
 
