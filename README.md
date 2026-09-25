@@ -1,6 +1,7 @@
 # Bitbucket + Traefik + Let's Encrypt on Docker Compose
 
 [![Deployment Verification](https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/actions/workflows/deployment-verification.yml/badge.svg?branch=main)](https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/actions/workflows/deployment-verification.yml)
+[![OpenSSF Best Practices](https://www.bestpractices.dev/projects/14876/badge)](https://www.bestpractices.dev/projects/14876)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 This repository deploys Bitbucket Data Center (single node) behind Traefik with automatic Let's Encrypt TLS, backed by PostgreSQL 17, with scheduled backups (database + home directory) and companion restore scripts.
