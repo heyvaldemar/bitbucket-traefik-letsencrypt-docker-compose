@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+_(no unreleased changes yet)_
+
+## [1.9.1] - 2026-09-29
+
 ### Changed
 
 - **`atlassian/bitbucket:10.4.3` moved to `atlassian/bitbucket:10.5.0`.** The freshness check reported the lag; the deploy job booted the stack on the new image before this landed.
@@ -261,7 +265,8 @@ v1.2.0.
   deploy-and-test job that boots the stack and requires Bitbucket's
   `/status` endpoint to answer through Traefik.
 
-[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.0...HEAD
+[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.1...HEAD
+[1.9.1]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.0...v1.9.1
 [1.9.0]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.8.6...v1.9.0
 [1.8.4]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.8.3...v1.8.4
 [1.8.3]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.8.2...v1.8.3
