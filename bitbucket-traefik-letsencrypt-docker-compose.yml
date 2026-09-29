@@ -8,7 +8,7 @@
 x-images:
   traefik: &traefik-image ${TRAEFIK_IMAGE_TAG:-traefik:${TRAEFIK_IMAGE_VERSION:-3.7@sha256:24841fe2de7304c149343d877d2923b4c8800a38ba015dea9174c23b20e344a0}}
   postgres: &postgres-image ${BITBUCKET_POSTGRES_IMAGE_TAG:-postgres:${BITBUCKET_POSTGRES_IMAGE_VERSION:-17@sha256:d74eeac9a635390a49bc21bd49fccd973de707e2a53a76ac49b552b8712ec46f}}
-  bitbucket: &bitbucket-image ${BITBUCKET_IMAGE_TAG:-atlassian/bitbucket:${BITBUCKET_IMAGE_VERSION:-10.4.3@sha256:c1041a77b6013fe0e11c4d896e2a6a1d302ee7c403fbd0e357ccc4e82916e4dd}}
+  bitbucket: &bitbucket-image ${BITBUCKET_IMAGE_TAG:-atlassian/bitbucket:${BITBUCKET_IMAGE_VERSION:-10.5.0@sha256:4c696ff0fff472b023bb0d876e2e67c11d1804b6a72015e281f07d3526bbcdb1}}
 
 networks:
   bitbucket-network:
