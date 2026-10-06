@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **`atlassian/bitbucket:10.5.0` moved to `atlassian/bitbucket:10.5.1`.** The freshness check reported the lag; the deploy job booted the stack on the new image before this landed.
+
+### Security
+
+- **`postgres:17` was rebuilt upstream**; the pin moved from `sha256:d74eeac9a635…` to `sha256:ae69c452f483…`. Same version, same tag, a rebuilt base image — the usual shape of a security fix in a base layer.
+
 ### Fixed
 
 - **`update.sh` no longer stops without a word when a release adds a variable and no compose file requires one.** The search for `${VAR:?}` came back empty, and under `pipefail` that empty result ended the script with status 1 right after it listed the new variables.
