@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **The Bitbucket container's memory limit could not hold its own heap.** Since 1.3.0 (2026-09-02) `BITBUCKET_MEMORY_LIMIT` defaulted to 2g while the heap may grow to 4G (`BITBUCKET_JVM_MAXIMUM_MEMORY`), and every clone and push runs git processes outside the JVM in the same container. The kernel kills a container that passes its limit, so a busy instance would be OOM-killed before its heap reached the size it was given. CI did not see it: it runs a 1G to 3G heap with nobody pushing. The default is now 6g: the 4G heap, a quarter for what the JVM keeps outside it, and 1g for git. If you lower the heap in `.env`, lower the limit with it; a limit you already set in `.env` is untouched.
+
 ### Security
 
 - **`traefik:3.7` was rebuilt upstream**; the pin moved from `sha256:c8a121e4bb13…` to `sha256:1336e85aaed2…`. Same version, same tag, a rebuilt base image — the usual shape of a security fix in a base layer.

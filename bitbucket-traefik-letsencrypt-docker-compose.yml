@@ -84,7 +84,7 @@ services:
     deploy:
       resources:
         limits:
-          memory: ${BITBUCKET_MEMORY_LIMIT:-2g}
+          memory: ${BITBUCKET_MEMORY_LIMIT:-6g}
           cpus: "${BITBUCKET_CPU_LIMIT:-2.0}"
         reservations:
           memory: ${BITBUCKET_MEMORY_RESERVATION:-256m}
@@ -92,6 +92,9 @@ services:
     volumes:
       - bitbucket-data:${DATA_PATH:-/var/atlassian/application-data/bitbucket}
     environment:
+      # BITBUCKET_MEMORY_LIMIT above holds this heap, a quarter more for what the JVM
+      # keeps outside it, and 1g for the git processes Bitbucket starts for clones
+      # and pushes. Change them together.
       JVM_MINIMUM_MEMORY: ${BITBUCKET_JVM_MINIMUM_MEMORY:-1G}
       JVM_MAXIMUM_MEMORY: ${BITBUCKET_JVM_MAXIMUM_MEMORY:-4G}
       SERVER_PROXY_NAME: ${BITBUCKET_HOSTNAME:?set in .env - see .env.example}

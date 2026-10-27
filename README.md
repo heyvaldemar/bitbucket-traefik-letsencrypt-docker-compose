@@ -90,6 +90,8 @@ The `backups` container runs a `pg_dump | gzip` + `tar.gz`-of-home → prune →
 
 Every service carries memory and CPU limits plus reservations as compose-level defaults: the same values CI boots the stack under. Override any of them in `.env` (the knobs and their defaults are listed in `.env.example`, e.g. `TRAEFIK_MEMORY_LIMIT=512m`) and the override survives every `git pull`. If a service is OOM-killed under real load, `docker inspect <container> --format '{{.State.OOMKilled}}'` says so; raise its `_MEMORY_LIMIT` and recreate.
 
+A JVM's memory limit sits above its maximum heap: the kernel counts everything in the container, and a JVM keeps memory outside its heap. `BITBUCKET_MEMORY_LIMIT` defaults to 6g: the 4G heap, a quarter more, and 1g for the git processes Bitbucket starts for clones and pushes, which run outside the JVM. If you lower the heap in `.env`, lower the limit with it.
+
 ## Container hardening
 
 Every service runs with `security_opt: no-new-privileges:true`, so a process cannot gain privileges through setuid binaries even if it escapes its initial capability set. Infrastructure containers (the reverse proxy, databases, caches, backups) run with `cap_drop: [ALL]` and add back only what their entrypoints need: `NET_BIND_SERVICE` for Traefik to bind :80/:443, `CHOWN`/`SETUID`/`SETGID` (and friends) for database images to own their data directory and drop to their service user. Application containers keep the default capability set on purpose: upstream images assume it, and a wrong guess there is a boot loop in production rather than a hardening win. CI boots the stack under exactly these settings on every push, so what ships is what was tested.
