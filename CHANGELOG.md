@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+_(no unreleased changes yet)_
+
+## [1.9.12] - 2026-10-27
+
 ### Fixed
 
 - **The Bitbucket container's memory limit could not hold its own heap.** Since 1.3.0 (2026-09-02) `BITBUCKET_MEMORY_LIMIT` defaulted to 2g while the heap may grow to 4G (`BITBUCKET_JVM_MAXIMUM_MEMORY`), and every clone and push runs git processes outside the JVM in the same container. The kernel kills a container that passes its limit, so a busy instance would be OOM-killed before its heap reached the size it was given. CI did not see it: it runs a 1G to 3G heap with nobody pushing. The default is now 6g: the 4G heap, a quarter for what the JVM keeps outside it, and 1g for git. If you lower the heap in `.env`, lower the limit with it; a limit you already set in `.env` is untouched.
@@ -345,7 +349,8 @@ v1.2.0.
   deploy-and-test job that boots the stack and requires Bitbucket's
   `/status` endpoint to answer through Traefik.
 
-[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.11...HEAD
+[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.12...HEAD
+[1.9.12]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.11...v1.9.12
 [1.9.11]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.10...v1.9.11
 [1.9.10]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.9...v1.9.10
 [1.9.9]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.8...v1.9.9
