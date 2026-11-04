@@ -189,7 +189,21 @@ jobs:
             docker compose -f .upgrade-drill-previous.yml -p "$COMPOSE_PROJECT_NAME" logs --tail 80
             exit 1
           fi
-          echo "$prev is up and healthy; stopping it and keeping its volumes"
+          # Healthy is not ready for Bitbucket: its health check is a port check, and
+          # the port opens seconds after start, while Bitbucket is still creating its
+          # schema. Stopped there, it leaves the schema half made, and the upgraded
+          # start below then hangs right after "Upgrading Bitbucket from 10.5.1 to
+          # 10.5.2" and the shared-home lock, until the 10-minute wait gives up (runs
+          # 41656965065 attempt 1 and 41852858484). So the previous release is
+          # stopped only once its /status has left STARTING, and the drill upgrades a
+          # schema that release finished, as a deployed host would.
+          # shellcheck disable=SC2016
+          if ! timeout 15m bash -c 'until curl -sk --resolve "$APP_HOSTNAME:443:127.0.0.1" "https://$APP_HOSTNAME/status" | grep -qE "FIRST_RUN|RUNNING"; do echo "Waiting for the previous release to finish starting..."; sleep 10; done'; then
+            echo "::error::the previous release ($prev) never left STARTING, so there is nothing finished to upgrade from."
+            docker compose -f .upgrade-drill-previous.yml -p "$COMPOSE_PROJECT_NAME" logs --tail 80
+            exit 1
+          fi
+          echo "$prev is up and finished starting; stopping it and keeping its volumes"
           docker compose -f .upgrade-drill-previous.yml -p "$COMPOSE_PROJECT_NAME" down
           rm -f .upgrade-drill-previous.yml
           echo "the start below is now an upgrade from $prev"

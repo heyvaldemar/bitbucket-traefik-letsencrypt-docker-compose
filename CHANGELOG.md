@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **The upgrade drill stopped the previous release before it had finished starting.** Its health check is a port check, and Bitbucket opens the port while it is still creating its schema, so the drill sometimes stopped it mid-way and the upgraded 10.5.2 then hung on the half-made schema until the 10-minute wait gave up (runs 41656965065 attempt 1 and 41852858484). The drill now waits for the previous release's `/status` to leave `STARTING` before it stops it, so it upgrades a schema that release finished, the way a deployed host does.
+
 ### Changed
 
 - **`atlassian/bitbucket:10.5.1` moved to `atlassian/bitbucket:10.5.2`.** The freshness check reported the lag; the deploy job booted the stack on the new image before this landed.
