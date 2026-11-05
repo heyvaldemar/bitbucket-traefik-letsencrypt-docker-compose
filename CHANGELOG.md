@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+_(no unreleased changes yet)_
+
+## [1.9.18] - 2026-11-05
+
 ### Fixed
 
 - **The upgrade drill stopped the previous release before it had finished starting.** Its health check is a port check, and Bitbucket opens the port while it is still creating its schema, so the drill sometimes stopped it mid-way and the upgraded 10.5.2 then hung on the half-made schema until the 10-minute wait gave up (runs 41656965065 attempt 1 and 41852858484). The drill now waits for the previous release's `/status` to leave `STARTING` before it stops it, so it upgrades a schema that release finished, the way a deployed host does.
@@ -389,7 +393,8 @@ v1.2.0.
   deploy-and-test job that boots the stack and requires Bitbucket's
   `/status` endpoint to answer through Traefik.
 
-[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.17...HEAD
+[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.18...HEAD
+[1.9.18]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.17...v1.9.18
 [1.9.17]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.16...v1.9.17
 [1.9.16]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.15...v1.9.16
 [1.9.15]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.14...v1.9.15
