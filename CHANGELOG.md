@@ -7,7 +7,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-_(no unreleased changes yet)_
+### Security
+
+- **`atlassian/bitbucket:10.5.2` was rebuilt upstream**; the pin moved from `sha256:19118aad4a71…` to `sha256:3a11bf2e6994…`. Same version, same tag, a rebuilt base image — the usual shape of a security fix in a base layer.
 
 ## [1.9.22] - 2026-11-07
 
