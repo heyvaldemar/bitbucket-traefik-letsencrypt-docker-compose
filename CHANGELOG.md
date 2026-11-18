@@ -7,6 +7,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+_(no unreleased changes yet)_
+
+## [1.9.27] - 2026-11-18
+
 ### Security
 
 - **`atlassian/bitbucket:10.5.2` was rebuilt upstream**; the pin moved from `sha256:3a11bf2e6994…` to `sha256:58e31b982ec7…`. Same version, same tag, a rebuilt base image — the usual shape of a security fix in a base layer.
@@ -447,7 +451,8 @@ v1.2.0.
   deploy-and-test job that boots the stack and requires Bitbucket's
   `/status` endpoint to answer through Traefik.
 
-[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.26...HEAD
+[Unreleased]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.27...HEAD
+[1.9.27]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.26...v1.9.27
 [1.9.26]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.25...v1.9.26
 [1.9.25]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.24...v1.9.25
 [1.9.24]: https://github.com/heyvaldemar/bitbucket-traefik-letsencrypt-docker-compose/compare/v1.9.23...v1.9.24
