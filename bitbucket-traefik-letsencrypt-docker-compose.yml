@@ -6,7 +6,7 @@
 # CI (Trivy scans, check-pin-freshness, the ephemeral test .env) reads
 # the pins from these lines — this block is the single source of truth.
 x-images:
-  traefik: &traefik-image ${TRAEFIK_IMAGE_TAG:-traefik:${TRAEFIK_IMAGE_VERSION:-3.7@sha256:b7b1b31e6440de0b1f7c4e0f6cf0a0f3f004866761d30c025fe00c80daaf7d9c}}
+  traefik: &traefik-image ${TRAEFIK_IMAGE_TAG:-traefik:${TRAEFIK_IMAGE_VERSION:-3.7@sha256:649c6476d4c499de84572bc60f5ecf75e98e75a5b8f8a8a72010c836d8ee9f95}}
   postgres: &postgres-image ${BITBUCKET_POSTGRES_IMAGE_TAG:-postgres:${BITBUCKET_POSTGRES_IMAGE_VERSION:-17@sha256:b60e90042aa6b8dbecd58e224b3e36114dbf8ad754465264c2476ad58a86e45c}}
   bitbucket: &bitbucket-image ${BITBUCKET_IMAGE_TAG:-atlassian/bitbucket:${BITBUCKET_IMAGE_VERSION:-10.5.2@sha256:2173d01451372b4a462f9b47b759dd8b8608b4d3d352ee5d7dae484f4fb3ef44}}
 
